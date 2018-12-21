@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/login/" method="post">
+    {% csrf_token %}
+<table border="2" align="center">
+    <tr>
+        <td>
+            <h1 align="center"> LOGIN PAGE</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" placeholder="Username" required name="t1">
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="password" placeholder="Password" required name="t2">
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit"  value="Login">
+        </td>
+    </tr>
+
+</table>
+    {{ message }}
+    </form>
+
+
+</body>
+</html>

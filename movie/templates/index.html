@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load staticfiles %}
+<form action="/movies/" method="post">
+    {% csrf_token %}
+    Select your hero
+    <select name="hero" multiple>
+        <option>---select---</option>
+        <option>NTR</option>
+        <option>Balaiah</option>
+        <option>Kalyanram</option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+<form action="/posters/" method="post">
+    {% csrf_token %}
+Movie name:
+    <select name="movies" multiple>
+        {% for x in movie %}
+            <option>{{ x }}</option>
+        {% endfor %}
+    </select>
+<input type="submit" value="Send">
+</form>
+{% for a in posters %}
+    {# NTR #}
+    {% if a == 'temper' %}
+        <img src="{% static 'ntr2.jpg' %}" alt="">
+    {% elif a == 'lavakusa' %}
+        <img src="{% static 'ntr1.jpg' %}" alt="">
+    {% elif a == 'aravindha' %}
+        <img src="{% static 'ntr.jpg' %}" alt="">
+    {% elif a == 'prasad' %}
+        <img src="{% static 'prasad.jpg' %}" alt="">
+     {# balaiah #}
+    {% elif a == "simha"%}
+        <img src="{%static 'download (14).jpg' %}" alt="">
+    {% elif a == "legend"%}
+        <img src="{%static 'download (13).jpg' %}" alt="">
+     {% elif a == 'prasad' %}
+        <img src="{% static 'prasad.jpg' %}" alt="">
+    {# kalyanram #}
+    {% elif a == "patas"%}
+        <img src="{%static 'download (15).jpg' %}" alt="">
+    {% elif a == "ism"%}
+        <img src="{%static 'download (16).jpg' %}" alt="">
+    {% elif a == 'prasad' %}
+        <img src="{% static 'prasad.jpg' %}" alt="">
+
+
+
+    {% endif %}
+{% endfor %}
+
+
+
+</body>
+</html>

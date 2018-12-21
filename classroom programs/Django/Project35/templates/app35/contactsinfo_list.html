@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        {% if object_list %}
+            Available Contacts <br>
+        {% for x in object_list%}
+            {{ x.name }} --- {{ x.cno }} <br>
+        {% endfor %}
+        {% else %}
+            No Contacts Available
+        {% endif %}
+
+
+</body>
+</html>

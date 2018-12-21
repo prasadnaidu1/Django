@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/faculity_registeration/" method="post">
+    {% csrf_token %}
+<table align="center" border="3">
+    <tr>
+        <th>Faculity Registration Form</th>
+    </tr>
+    <tr>
+        <td>Name:
+            <input type="text" placeholder="Name" name="fname" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Gender:
+            <input type="radio" value="Male"  name="gender" required>Male
+            <input type="radio" value="FeMale" name="gender" required>Female
+        </td>
+    </tr>
+    <tr>
+        <td>Contact no:
+            <input type="number" placeholder="Contact no" name="fcno" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Experince:
+            <input type="number" placeholder="Experience" name="fexp" required>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Course:<br>
+            <input type="checkbox"  value="Python" name="t1">Python
+            <input type="checkbox"  value="Java" name="t1">Java
+            <input type="checkbox"  value="Django" name="t1">Django
+            <input type="checkbox"  value="DataScience" name="t1">Datascience
+            <input type="checkbox"  value="PHP" name="t1">PHP
+            <input type="checkbox"  value="AWS" name="t1">AWS
+            <input type="checkbox"  value="Angular JS" name="t1">Angular JS
+            <input type="checkbox"  value="Network" name="t1">Networking
+            (choose your teaching languages)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Register">
+        </td>
+    </tr>
+
+
+</table>
+    </form>
+<table align="center" border="2">
+    <tr>
+        <th>
+            faculity details
+        </th>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>Gender</td>
+        <td>Contact no</td>
+        <td>Experience</td>
+        <td>Course</td>
+    </tr>
+    {% for x in ans %}
+        <tr>
+        <td> {{ x.name }}</td>
+        <td> {{ x.gender }}</td>
+        <td> {{ x.cno }}</td>
+        <td> {{ x.exp }}</td>
+        <td> {{ x.course }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form action="/savecontacts/" method="post">
+            {% csrf_token %}
+            <table align="center">
+                <tr>
+                    <td><input type="text" name="t1" placeholder="Name" required></td>
+                </tr>
+                <tr>
+                    <td><input type="number" name="t2" placeholder="Contact No" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Save"></td>
+                </tr>
+                <tr>
+                    <td>{{ mess }}</td>
+                </tr>
+
+                 <tr>
+                    <td>
+                        <a href="/viewcontacts/">
+                            View All Contacts
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="/viewone/">
+                            View One Contact
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>

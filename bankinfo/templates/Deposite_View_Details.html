@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table align="center" border="1">
+    <tr>
+        <th colspan="5">Deposie Details</th>
+    </tr>
+    <tr>
+        <td>Account No</td>
+        <td>AccountHolder Name</td>
+        <td>Money(Rs)</td>
+        <td>Date of Deposite</td>
+        <td>Type of Account</td>
+    </tr>
+    {% for x in msg1 %}
+        <tr>
+        <td>{{ x.D_no }}</td>
+        <td>{{ x.D_name }}</td>
+        <td>{{ x.D_money }}</td>
+        <td>{{ x.A_date }}</td>
+        <td>{{ x.A_type }}</td>
+        </tr>
+    {% endfor %}
+<tr>
+    <form action="/depositeCSVfile/" method="post">
+        {% csrf_token %}
+    <td colspan="5" align="center">
+        <input type="submit" value="Download">
+    </td>
+        </form>
+</tr>
+</table>
+</body>
+</html>

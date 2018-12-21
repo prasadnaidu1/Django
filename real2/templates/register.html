@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/registration/" method="post">
+    {% csrf_token %}
+<table align="center"  border="3">
+    <tr>
+        <th>
+            Employee details
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <input type="number"  value="{{ key }}" placeholder="Idno" required name="idno" readonly>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" placeholder="Name" value="{{ name }}" required name="name">
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="Contact No"  value="{{ cno }}" required name="cno">
+
+        </td>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="gmail" placeholder="Gmail"  value="{{ gmail }}" required name="gmail">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Save">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ message }}
+        </td>
+    </tr>
+</table>
+    </form>
+</body>
+</html>

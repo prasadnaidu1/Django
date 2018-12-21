@@ -1,0 +1,11 @@
+import sqlite3 as sql
+conn=sql.connect("product.db")
+curs=conn.cursor()
+pname=input("enter product name:")
+pprice=input("enter product price:")
+pno=input("enter product no:")
+curs.execute("update product set pname=?,pprice=? where pno=?",(pname,pprice,pno) )
+print("data updated")
+curs.close()
+conn.commit()
+conn.close()

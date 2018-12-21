@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+<form action="/registerdetails/" method="post">
+    {% csrf_token%}
+<table align="center" border="3" style="background-size: auto">
+    <tr>
+        <td>Id:
+            <input type="number" placeholder="Id" name="id" autocomplete="true" required>
+        </td>
+    </tr>
+    <tr>
+        <td>User Name:
+            <input type="text" placeholder="UserName" name="uname" autocomplete="true" required>
+            (enter numbers only)
+        </td>
+    </tr>
+    <tr>
+        <td>Password:
+            <input type="password" placeholder="Password" name="upass"  required>
+            (enter numbers only)
+        </td>
+    </tr>
+    <tr>
+        <td>Contact :
+            <input type="number" placeholder="Contact No" name="cno" autocomplete="true" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Email:
+            <input type="email" placeholder="Email Id" name="email" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Courses:
+        <select name="course" multiple>
+            <option>Python</option>
+            <option>Django+Project</option>
+            <option>Datascience</option>
+            <option>PHP</option>
+            <option>AWS</option>
+            <option>Angular JS</option>
+            <option>UI Technologies</option>
+            <option>BigData(Hadoop)</option>
+            <option>Java</option>
+            <option>.Net</option>
+            <option>Digitalmarketing</option>
+            <option>SAP</option>
+        </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="submit" value="Register">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ status }}
+        </td>
+    </tr>
+</table>
+    </form>
+<table align="center" border="2">
+    <tr>
+        <th colspan="2">student details</th>
+    </tr>
+<tr>
+    <td>Student Id</td>
+    <td>Student course</td>
+</tr>
+    {% for x in ans %}
+        <tr>
+        <td>{{ x.id }}</td>
+        <td>{{ x.course }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

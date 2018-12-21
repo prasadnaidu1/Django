@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/display/" method="post">
+    {% csrf_token %}
+<table align="center" border="3" bgcolor="#40e0d0">
+    <tr>
+        <th>
+            Expenses
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Entry NO:
+            <input type="number" value="{{ id }}" placeholder="Entry No" name="eno" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Date:
+            <input type="date"  placeholder="Date" min="2018-10-12" max="" name="date" required>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Amount:
+            <input type="number" placeholder="Amount"  name="amt" required>
+        </td>
+    </tr>
+    <tr>
+        <td>Members:<br>
+            <input type="checkbox" name="t1" value="ravi">Ravi<br>
+            <input type="checkbox" name="t1" value="ramu">Ramu<br>
+            <input type="checkbox" name="t1" value="prasad">Prasad<br>
+            <input type="checkbox" name="t1" value="raju">Raju<br>
+            <input type="checkbox" name="t1" value="rani">Rani<br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Save">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ msg }}
+        </td>
+    </tr>
+
+</table>
+    </form>
+<table align="center" border="3">
+    <tr>
+        <th colspan="6">
+            Expenses Details
+        </th>
+    </tr>
+    <tr>
+        <th>Entry No</th>
+        <th>Date</th>
+        <th>Items</th>
+        <th>Amount</th>
+        <th>Members</th>
+        <th>Individual bill</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+{% for x in res %}
+        <tr>
+        <td>{{ x.entry}}</td>
+        <td>{{ x.date }}</td>
+        <td>{{ x.items }}</td>
+        <td>{{ x.amount }}</td>
+        <td>{{ x.members }}</td>
+        <td>{{ x.res }}</td>
+        <td>
+        <a href="/index/?update_id={{ x.entry }}" >Update</a>
+        </td>
+        <td>
+            <form action="/delete/" method="post">
+                {% csrf_token %}
+            <input type="submit" value="Delete">
+                <input type="hidden" value="{{ x.entry }}" name="delete_id">
+                </form>
+
+        </td>
+        </tr>
+{% endfor %}
+
+</table>
+</body>
+
+</html>

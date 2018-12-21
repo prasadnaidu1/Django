@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <td>
+            {% for a,b in emp.items %}
+                <td>{{ a }}</td>
+                    <tr>
+                    {% for c,d in b.items %}
+                    <td>{{ c }}</td>
+                    </tr>
+                            <tr>
+                            {% for e,f in d.items %}
+                            <td>{{ e }}</td>
+                                <td>{{ f.name }}</td>
+                                <td>{{ f.sal }}</td>
+                                            </tr>
+                                     {% endfor %}
+
+                        {% endfor %}
+                    {% endfor %}
+
+        </td>
+
+    </tr>
+</table>
+
+</body>
+</html>

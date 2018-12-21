@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/login/" method="post">
+    {% csrf_token %}
+<table border="3" align="center" >
+
+    <tr>
+        <td>
+            <h1 align="center">Sign Up</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            FirstName:
+            <input type="text" placeholder="FirstName" required name="t1" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            MiddleName:
+            <input type="text" placeholder="Middle Name" required name="t2">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            LastName:
+            <input type="text" placeholder="LastName" required name="t3">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Password:
+            <input type="password" placeholder="Password" required name="t4" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ContactNo:
+            <input type="text" placeholder="Contactnumber" required name="t5">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Email:
+            <input type="email" placeholder="Email" required name="t6">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Address:
+            <textarea name="t8" placeholder="address"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Pincode:
+            <input type="text" placeholder="Pincode" name="t9">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Date-Of-Birth:
+            <input type="date" required name="t10">
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <input type="submit" value="Submit">
+        </td>
+    </tr>
+    <tr>
+        <td>
+ {{ message }}
+        </td>
+    </tr>
+
+</table>
+ </form>
+    <table border="3" align="center">
+    <tr>
+          <td>fname</td>
+          <td>mname</td>
+          <td>lname</td>
+          <td>password</td>
+          <td>contact no</td>
+          <td>gmail</td>
+          <td>address</td>
+          <td>pincode</td>
+          <td>date of birth</td>
+
+    </tr>
+        {% for x,y in emp.items %}
+              <td>{{ x }}</td>
+            <tr>
+            {% for p in y.values %}
+                <td>{{ p }}</td>
+            {% endfor %}
+
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

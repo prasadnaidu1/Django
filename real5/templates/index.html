@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/register/" method="post">
+    {% csrf_token %}s
+
+<table align="center" border="3">
+    <tr>
+        <th>
+            Product details
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="number"  value="{{ no }}" placeholder="no" name="no" required>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" placeholder="name" name="name" required>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="price" name="price" required>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="quantity" name="qty"  required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Save">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ message }}
+        </td>
+    </tr>
+</table >
+       </form>
+{% if not res %}
+    <h1>data not found</h1>
+    {% else %}
+<table align="center" border="3">
+<tr>
+    <th>Product no</th>
+    <th>Product name</th>
+    <th>Product price</th>
+    <th>Product quantity</th>
+    <th>Delete</th>
+    <th>Update</th>
+</tr>
+    {% for x in res %}
+        <tr>
+        <td>{{ x.no }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.price }}</td>
+        <td>{{ x.qty }}</td>
+        <td>
+        <a href="/update/?update_id={{ x.no }}"> Update
+            </a>
+        </td>
+        <td>
+            <form action="/delete/" method="post">
+                {% csrf_token %}
+            <input type="submit" value="Delete">
+                <input type="hidden" value="{{ x.no }}" name="delete_id">
+                </form>
+        </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+</body>
+</html>

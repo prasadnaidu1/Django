@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="details" method="post">
+    {% csrf_token %}
+<table border="2" align="center">
+    <tr>
+        <td>
+            <input type="text" placeholder="name" required name="t1"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="age" required name="t2"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number"  placeholder="contact no" required name="t3"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="email" placeholder="Email-id" required  name="t4"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="salary" required name="t5"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <textarea name="t6" placeholder="address" required>
+
+            </textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="send"/>
+        </td>
+
+    </tr>
+
+
+</table>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+            <form action="/openg/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Post Button">
+            </form>
+
+        <form action="/openg/"> {% comment %} The default method is get {% endcomment %}
+                {% csrf_token %}
+                <input type="submit" value="Get Button">
+            </form>
+</body>
+</html>

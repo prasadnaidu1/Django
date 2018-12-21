@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table align="center" border="3">
+<th colspan="5"> Details</th>
+    <tr>
+        <td>
+            idno
+        </td>
+        <td>
+            name
+        </td>
+        <td>
+            contact no
+        </td>
+        <td>Delete</td>
+        <td>Update</td>
+    </tr>
+    {% for x,y in res.items %}
+        <tr>
+        <td>{{ x }}</td>
+        <td>{{ y.name}}</td>
+        <td>{{ y.cno}}</td>
+        <td>
+            <form action="/delete/" method="post">
+                {% csrf_token %}
+            <input type="submit" value="Delete">
+                <input type="hidden" value="{{ x }}" name="delete_id">
+                </form>
+
+        </td>
+            <td><a href="/register/?update_id={{ x }}">Update </a></td>
+
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/depositedetails/" method="post">
+    {% csrf_token %}
+<table align="center" border="1">
+    <tr>
+        <td>
+            <input type="number" placeholder="Account No" name="a1" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" placeholder="Account Name" name="a2" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" placeholder="Money" name="a3" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="date" min="2018-10-20" max="" name="a5" required>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select name="a4">
+                <option>--Select--</option>
+                <option>Savings A/c</option>
+                <option>Current A/c</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Save">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{ message }}
+        </td>
+    </tr>
+</table>
+    </form>
+</body>
+</html>

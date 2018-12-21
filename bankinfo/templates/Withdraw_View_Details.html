@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/withdrawdetails/" method="post">
+    {% csrf_token %}
+<table align="center" border="1">
+    <tr>
+        <td>
+            <input type="number" placeholder="Money" name="y1" required>
+            (withdrawal money)
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <input type="date" min="2018-10-19" max="2018-10-30" placeholder="Money" name="y2" required>
+
+        </td>
+    </tr>
+     <tr>
+        <td>
+           <select name="y3">
+               <option>--Select--</option>
+               <option>Savings</option>
+               <option>Current</option>
+           </select>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="Withdraw">
+        </td>
+    </tr>
+</table>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="3">
+<th>    </th>
+<th>name</th>
+<th>salary</th>
+    <td>
+        <tr>
+             <tr>
+            {% for a,b in college.items%}
+                <tr>
+                 <td>{{ a }}</td>
+                </tr>
+                {% for c,d in b.items %}
+                    <tr>
+                   <td> {{ c }}</td>
+                    </tr>
+                    <tr>
+                    {% for e,f in d.items %}
+                        <td>{{ e }}</td>
+                        {% for i in f.values %}
+                            <td>{{ i }}</td>
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+            {% endfor %}
+        </tr>
+
+    </td>
+
+</table>
+</body>
+</html>

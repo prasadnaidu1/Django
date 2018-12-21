@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="viewsdetails/" method="get">
+{% csrf_token %}
+<h1 align="center">Employee Details</h1>
+<table border="2" align="center">
+<tr>
+    <td>Contac no</td>
+    <td>Gmail</td>
+    <td> Name</td>
+    <td>Id no</td>
+    <td>update</td>
+    <td>delete</td>
+</tr>
+
+    {% for x,y in emp.items %}
+        <tr>
+        {% for i in y.values %}
+            <td>{{ i }}</td>
+
+            {% endfor %}
+            <td>{{ x }}</td>
+        <td>
+            <a href="/register/?update_id={{ x }}" >
+            update
+                </a>
+        </td>
+        <td>
+            <form action="/deletenew/" method="post">
+                {% csrf_token %}
+            <input type="submit" value="Delete">
+                <input type="hidden" value="{{ x }}" name="delete">
+
+                </form>
+        </td>
+
+
+        </tr>
+    {% endfor %}
+
+</table>
+</form>
+</body>
+</html>
